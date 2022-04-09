@@ -1,9 +1,9 @@
 [CmdletBinding()]
 param (
-    [Parameter(Position=0,Mandatory)]
-    [string]$Distro,
+    [Parameter()]
+    [string]$Distro="Debian",
 
-    [Parameter(Position=1,Mandatory)]
+    [Parameter(Mandatory)]
     [string]$Port
 )
 
