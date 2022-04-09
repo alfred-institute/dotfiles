@@ -1,5 +1,3 @@
-zmodload zsh/mapfile
-
 # Check to make sure OS is supported by this .zshrc
 # =================================================
 if [[ "$OSTYPE" != "linux-gnu" ]]; then
@@ -66,26 +64,20 @@ function create_update_file {
 
 update_if_outdated && create_update_file
 
-# =========================
-export STARSHIP_CONFIG=~"$HOME/.zsh/starship.toml" # Terminal
+# Initialise Starship
+# =================================================
+export STARSHIP_CONFIG=~"$HOME/.zsh/starship.toml"
 eval "$(starship init zsh)"
 
-# Plugin Manager
-# =========================
+# Initialise Antigen plugin manager
+# =================================================
 source $BREW_HOME/share/antigen/antigen.zsh
 antigen use oh-my-zsh
 
-## Plugins
-## ========================
-antigen bundle git                               # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/git
-antigen bundle command-not-found                 # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/command-not-found
-antigen bundle common-aliases                    # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/common-aliases
-antigen bundle docker                            # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/docker
-antigen bundle autojump                          # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/autojump
-antigen bundle vscode                            # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/vscode
-antigen bundle 1password                         # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/1password
-antigen bundle fzf                               # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/fzf
-antigen bundle zsh-users/zsh-autosuggestions     # https://github.com/zsh-users/zsh-autosuggestions
-antigen bundle zsh-users/zsh-completions         # https://github.com/zsh-users/zsh-completions
-antigen bundle zsh-users/zsh-syntax-highlighting # https://github.com/zsh-users/zsh-syntax-highlighting
+# Setup plugins
+# =================================================
+zsh_plugins=("${(f)$(< $HOME/.zsh/zsh_plugins)}")
+for plugin in ${zsh_plugins[@]}; do
+	antigen bundle $plugin
+done
 antigen apply
