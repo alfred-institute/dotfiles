@@ -15,7 +15,7 @@
   .\get_wsl_distro_ip.ps1 -distro <distro>
 ```
 
-### Forward Port to WSL Port In
+### Forward Port to WSL Port
 
 ```bash
   ./scripts/forward_port -distro <distro> -port <port>
