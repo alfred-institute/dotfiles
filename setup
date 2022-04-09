@@ -1,0 +1,21 @@
+#!/bin/bash
+echo "Setup environment..."
+sudo apt update
+sudo apt upgrade
+sudo apt autoremove
+
+sudo apt install zsh git
+
+echo "Setup Dotfiles..."
+DOT_FILES="$HOME/development/alfred-institute/dotfiles"
+if [ -d "$DOT_FILES" ]; then
+    echo "Fetching Latest Dotfiles"
+    (cd $DOT_FILES && git pull)
+else
+    echo "Cloning Dotfiles"
+    git clone https://github.com/alfred-institute/dotfiles.git "$DOT_FILES"
+fi
+
+echo "Setting up links..."
+cp --symbolic-link -f "$DOT_FILES/.zshrc" "$HOME/.zshrc"
+cp --symbolic-link -rf "$DOT_FILES/.zsh" "$HOME/.zsh"
