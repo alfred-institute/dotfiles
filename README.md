@@ -6,12 +6,16 @@
   curl https://raw.githubusercontent.com/alfred-institute/dotfiles/main/setup | /bin/bash
 ```
 
-# Get WSL Port In Windows
+# Scripts
+
+## WSL Management
+
+### Get WSL Port
 ```bash
   .\get_wsl_distro_ip.ps1 -distro <distro>
 ```
 
-# Forward WSL Ports In Windows
+### Forward Port to WSL Port In
 
 ```bash
   ./scripts/forward_port -distro <distro> -port <port>
