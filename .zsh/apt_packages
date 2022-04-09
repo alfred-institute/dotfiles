@@ -1,0 +1,7 @@
+ssh
+bash
+ca-certificates
+vim
+git
+curl
+build-essential
