@@ -12,7 +12,7 @@
 
 ### Get WSL Port
 ```powershell
-  ./scripts/get_wsl_distro_ip.ps1 -distro <distro>
+  ./scripts/get_wsl_ip.ps1 -distro <distro>
 ```
 
 ### Forward Port to WSL Port
