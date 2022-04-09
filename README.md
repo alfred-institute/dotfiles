@@ -11,13 +11,20 @@
 ## WSL Management
 
 ### Get WSL Port
-```bash
-  .\get_wsl_distro_ip.ps1 -distro <distro>
+```powershell
+  ./scripts/get_wsl_distro_ip.ps1 -distro <distro>
 ```
 
 ### Forward Port to WSL Port
 
-```bash
-  ./scripts/forward_port -distro <distro> -port <port>
+```powershell
+  ./scripts/forward_port_to_wsl -distro <distro> -port <port>
  ```
+
+### SSH Into WSL
+
+```powershell
+   ./scripts/ssh_into_wsl.ps1 -distro <distro> -port <port> -user <user>
+ ```
+
 
